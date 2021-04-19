@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    setInterval(showTime, 1000);
+
+    function showTime() {
+        let today = new Date();
+        let hours = today.getHours();
+        let minutes = today.getMinutes();
+        let seconds = today.getSeconds();
+        let period = 'AM';
+        if (hours == '0') {
+            hours = 12;
+        }
+        if (hours > 12) {
+            hours -= 12;
+            period = 'PM';
+        }
+        hours = hours < 10 ? `0${hours}` : hours;
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
+        seconds = seconds < 10 ? `0${seconds}` : seconds;
+        const time = `${hours} : ${minutes} : ${seconds}  ${period} `;
+        document.getElementById('clock').innerHTML = time;
+    }
+    showTime();
+</script>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-color: rgb(219, 170, 170);
+            color: #fff;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        #clock {
+            font-size: 100px;
+            color: rgb(201, 108, 108);
+            padding: 60px;
+            margin: 20px;
+            background-color: rgb(75, 61, 199);
+            border-radius: 10px;
+        }
+
+        .My {
+            color: black;
+            font-size: 80px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="My">Digital Clock</h1>
+    <div id="clock">10:24:35</div>
+
+</body>
+
+</html>
